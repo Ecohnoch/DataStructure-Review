@@ -33,7 +33,7 @@ void spfaBfs(int s){
             int v = edge[e].v;   // num of the node
 
             // tringle principle
-            if(dis[u] + edge[e].w < ma[v]){
+            if(dis[u] + edge[e].w < dis[v]){
                 dis[v] = dis[u] + edge[e].w;
                 if(!in[v]){
                     que.push(v);
@@ -47,7 +47,7 @@ void spfaBfs(int s){
 int main()
 {
     cin>>n>>m;
-    fill(ma+1,ma+n+1,inf);
+    fill(dis + 1, dis + n + 1, inf);
     int u,v,w;
 
     while(m--){
@@ -60,6 +60,6 @@ int main()
 
     bfs(1);
 
-    cout<<ma[n]<<endl;
+    cout<<dis[n]<<endl;
     return 0;
 }
